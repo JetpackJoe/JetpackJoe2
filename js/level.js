@@ -5,12 +5,14 @@ export class Level {
 	}
 	load() {
 		return new Promise((acc, rej)=>{
+			let self = this;
 			fetch(inf.file).then(res => {
+				self.name = self.inf.name || 'undefined';
 				res.json().then(json => {
 					self.json = json;
-				});
-				this.name = this.inf.name || 'undefined';
-			});
+					acc(self);
+				}).catch(rej);
+			}).catch(rej);
 		});
 	}
 }
