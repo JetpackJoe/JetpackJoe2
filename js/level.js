@@ -1,8 +1,11 @@
-export class level {
-	constructor(url) {
+export class Level {
+	constructor(inf = {}) {
 		let self = this;
-		fetch(url, {}).then(response => {
-			self.level = response.json();
+		fetch('assets/levels.json').then(res => {
+			res.json().then(json => {
+				self.json = json;
+			});
 		});
+		this.name = inf.name || 'undefined';
 	}
 }

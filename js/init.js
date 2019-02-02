@@ -1,5 +1,8 @@
+import {Game} from './game.js';
 window.addEventListener("DOMContentLoaded", ()=>{
 	let game = new Game();
-	game.init();
-	document.querySelectorAll('#noscript').forEach(e=>e.style.display='none');
+	game.init().then(()=>{
+		document.querySelector('#noscript').style.display='none';
+		document.body.innerText = JSON.stringify(game.levels);
+	});
 });
