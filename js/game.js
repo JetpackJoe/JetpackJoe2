@@ -12,7 +12,7 @@ export class Game {
 	init() {
 		// Copy this
 		let self = this;
-		// New promise! I swear!
+		// I promise! I swear!
 		return new Promise((acc, rej) => {
 			fetch('./assets/levels.json').then(res => {
 				res.json().then(json => {
