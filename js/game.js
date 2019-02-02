@@ -20,7 +20,13 @@ export class Game {
 					for(let i = 0; i < levels.length; i++) {
 						self.levels.push(new Level(levels[i]));
 					}
-					acc(self);
+					let arr = [];
+					for(let i = 0; i < self.levels.length; i++) {
+						arr.push(self.levels[i].load());
+					}
+					Promise.all(arr, values => {
+						acc(self);
+					});
 				});
 			}).catch(err => {
 				rej(err);
