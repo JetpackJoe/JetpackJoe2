@@ -1,3 +1,4 @@
+/* Unsupported browsers see this */
 @keyframes noscript {
 	0% {
 		color: rgba(0, 0, 0, 0);
@@ -21,4 +22,9 @@
 	animation: 2s noscript linear;
 	font-family: Ubuntu Mono, Ubuntu;
 	color: white;
+}
+
+/* Main CSS */
+canvas {
+	background: black;
 }

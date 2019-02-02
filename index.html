@@ -2,10 +2,15 @@
 <html>
 <head>
 	<title>JetpackJoe: Part 2</title>
+	<meta name='viewport' content='width=device-width'>
 	<link rel='stylesheet' href='https://fonts.googleapis.com/css?family=Ubuntu%20Mono' />
 	<link rel='stylesheet' href='css/main.css' />
-	<!-- <script type='module' src='js/game.js'></script> -->
-	<!-- <script type='module' src='js/init.js'></script> -->
+	<script>
+		window.onerror = function err() {
+			alert(Array.from(arguments));
+		}
+	</script>
+	<script type='module' src='js/init.js'></script>
 </head>
 <body>
 	<div id='noscript'>
