@@ -14,7 +14,7 @@ export class Game {
 		let self = this;
 		// New promise! I swear!
 		return new Promise((acc, rej) => {
-			fetch('assets/levels.json').then(res => {
+			fetch('./assets/levels.json').then(res => {
 				res.json().then(json => {
 					let {levels} = json;
 					for(let i = 0; i < levels.length; i++) {
