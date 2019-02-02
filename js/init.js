@@ -1,4 +1,4 @@
 window.addEventListener("DOMContentLoaded", ()=>{
-  let game = new Game();
-  game.init();
+	let game = new Game();
+	game.init();
 });
