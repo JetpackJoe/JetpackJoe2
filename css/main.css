@@ -1,3 +1,11 @@
+@keyframes noscript {
+	0% {
+		color: rgba(0, 0, 0, 0);
+	}
+	100% {
+		color: rgba(255, 255, 255, 1);
+	}
+}
 #noscript {
 	position: fixed;
 	top: 0;
@@ -5,6 +13,11 @@
 	height: 100vh;
 	width: 100vw;
 	background-color: black;
-	background-image: linear-gradient(#333, #000);
 	background-size: 100vw 100vh;
+	text-align: center;
+	line-height: 100vh;
+	font-size: 5vw;
+	animation: 2s noscript linear;
+	font-family: Ubuntu Mono;
+	color: white;
 }
