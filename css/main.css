@@ -7,6 +7,7 @@
 	}
 }
 #noscript {
+	display: block;
 	position: fixed;
 	top: 0;
 	left: 0;
@@ -18,6 +19,6 @@
 	line-height: 100vh;
 	font-size: 5vw;
 	animation: 2s noscript linear;
-	font-family: Ubuntu Mono;
+	font-family: "Ubuntu Mono";
 	color: white;
 }

@@ -1,0 +1,8 @@
+{
+	"levels": [
+		{
+			"name": "Demo World",
+			"file": "assets/levels/demo.json"
+		}
+	]
+}

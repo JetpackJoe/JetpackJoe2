@@ -5,6 +5,11 @@ class Game {
 		// Store important things
 		self.entities = [];
 		self.levels = [];
-		fetch().then(res => {});
+		fetch('assets/levels.json').then(res => {
+			res.json().then(json => {
+				console.log(json);
+			});
+		});
 	}
+	init() {}
 }
