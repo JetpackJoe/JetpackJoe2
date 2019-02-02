@@ -1,0 +1,13 @@
+{
+	"enemy": {
+		"sprite": "img/entity/enemy.png",
+		"states": {
+			"blue": [0, 0, 40, 90],
+			"green": [40, 0, 40, 90]
+		},
+		"animFramecount": {
+			"blue": 2,
+			"green": 2
+		}
+	}
+}
