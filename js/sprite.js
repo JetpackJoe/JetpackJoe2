@@ -20,8 +20,6 @@ export class Sprite {
 		src[1] += sy;
 		src[2] += sw;
 		src[3] += sh;
-		// if(this.self_obj.animFramecount) // anim frame
-			// src[3] *= (1) % this.self_obj.animFramecount[this.state];
 		ctx.drawImage(this.image, ...src, x, y, w, h);
 	}
 }
