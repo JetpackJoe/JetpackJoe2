@@ -18,7 +18,7 @@ export class Sprite {
 		let src = this.self_obj.states[this.state];
 		// if(this.self_obj.animFramecount) // anim frame
 			// src[3] *= (1) % this.self_obj.animFramecount[this.state];
-		ctx.drawImage(this.image, x, y, w, h, ...src);
+		ctx.drawImage(this.image, ...src, x, y, w, h);
 	}
 }
 

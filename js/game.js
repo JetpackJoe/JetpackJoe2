@@ -47,9 +47,12 @@ export class Game {
 		});
 	}
 	start() {
+		this.canvas.width = 640;
+		this.canvas.height = 360;
 		this.spritelist.draw('blocks.type1:green',
 			this.context,
-			0, 0, 64, 64
+			0, 0, 128, 128
 		);
+		setTimeout(()=>this.start(), 100);
 	}
 }
