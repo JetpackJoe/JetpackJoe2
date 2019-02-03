@@ -15,4 +15,16 @@ export class Level {
 			}).catch(rej);
 		});
 	}
+	drawOn(ctx, playerX = 0) {
+		// todo: do this
+		for(let block of this.json.blocks) {
+			ctx.fillStyle = this.json.blocks[4] || '#000';
+			ctx.fillRect(
+				this.json.blocks[0]-playerX,
+				this.json.blocks[1],
+				this.json.blocks[2],
+				this.json.blocks[3]
+			);
+		};
+	}
 }

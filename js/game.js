@@ -17,6 +17,7 @@ export class Game {
 		self.spritelist = new Spritelist([
 			'blocks.type1:green'
 		]);
+		self.level = new Level();
 		// I promise!
 		return new Promise((acc, rej) => {
 			fetch('assets/levels.json').then(res => {
@@ -49,9 +50,8 @@ export class Game {
 	start() {
 		this.canvas.width = 640;
 		this.canvas.height = 360;
-		this.spritelist.draw('blocks.type1:green',
-			this.context,
-			0, 0, 128, 128
+		this.levels[0].drawOn(
+			this.context
 		);
 		setTimeout(()=>this.start(), 100);
 	}
