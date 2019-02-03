@@ -17,10 +17,10 @@
 	background-color: black;
 	text-align: center;
 	line-height: 100vh;
-	font-size: 5vmin;
+	font-size: 3vmin;
 	overflow-y: hidden;
 	animation: 2s noscript linear;
-	font-family: Ubuntu Mono, Ubuntu;
+	font-family: "Ubuntu Mono", Ubuntu;
 	color: white;
 }
 

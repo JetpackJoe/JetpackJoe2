@@ -25,7 +25,7 @@ export class Sprite {
 }
 
 export class Spritelist {
-	constructor(list) {
+	constructor(list = []) {
 		let self = this;
 		self.sprites = {};
 		for(let sprite of list) {
