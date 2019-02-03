@@ -12,10 +12,14 @@ export class Sprite {
 			self.image.src = self.self_obj.sprite;
 		});
 	}
-	drawAt(ctx, x, y, w, h) {
+	drawAt(ctx, x, y, w, h, sx, sy, sw, sh) {
 		if(!('self_obj' in this))
 			return -1;
 		let src = this.self_obj.states[this.state];
+		src[0] += sx;
+		src[1] += sy;
+		src[2] += sw;
+		src[3] += sh;
 		// if(this.self_obj.animFramecount) // anim frame
 			// src[3] *= (1) % this.self_obj.animFramecount[this.state];
 		ctx.drawImage(this.image, ...src, x, y, w, h);
