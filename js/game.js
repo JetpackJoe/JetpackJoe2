@@ -12,7 +12,7 @@ export class Game {
 	init() {
 		// Copy this
 		let self = this;
-		// I promise! I swear!
+		// I promise!
 		return new Promise((acc, rej) => {
 			fetch('./assets/levels.json').then(res => {
 				res.json().then(json => {
@@ -27,8 +27,12 @@ export class Game {
 					Promise.all(arr, values => {
 						acc(self);
 					});
+				}).catch(err => {
+					// Ehhh fuck it
+					rej(err);
 				});
 			}).catch(err => {
+				// Haha I lied
 				rej(err);
 			});
 		});
