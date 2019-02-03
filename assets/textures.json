@@ -1,0 +1,24 @@
+{
+	"entites": {
+		"enemy": {
+			"sprite": "assets/img/entity/enemy.png",
+			"states": {
+				"blue": [0, 0, 40, 90],
+				"green": [40, 0, 40, 90]
+			},
+			"animFramecount": {
+				"blue": 2,
+				"green": 2
+			}
+		}
+	},
+	"blocks": {
+		"type1": {
+			"sprite": "assets/img/tile/block.png",
+			"states": {
+				"green": [0, 0, 16, 16],
+				"orange": [16, 0, 16, 16]
+			}
+		}
+	}
+}
