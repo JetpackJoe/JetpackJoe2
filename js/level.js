@@ -4,9 +4,9 @@ export class Level {
 		this.inf = inf;
 	}
 	load() {
+		let self = this;
 		return new Promise((acc, rej)=>{
-			let self = this;
-			fetch(inf.file).then(res => {
+			fetch(self.inf.file).then(res => {
 				self.name = self.inf.name || 'undefined';
 				res.json().then(json => {
 					self.json = json;

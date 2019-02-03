@@ -14,7 +14,7 @@ export class Game {
 		let self = this;
 		// I promise!
 		return new Promise((acc, rej) => {
-			fetch('./assets/levels.json').then(res => {
+			fetch('assets/levels.json').then(res => {
 				res.json().then(json => {
 					let {levels} = json;
 					for(let i = 0; i < levels.length; i++) {
@@ -22,10 +22,14 @@ export class Game {
 					}
 					let arr = [];
 					for(let i = 0; i < self.levels.length; i++) {
-						arr.push(self.levels[i].load());
+						arr.push(Promise.resolve(self.levels[i].load()));
 					}
-					Promise.all(arr, values => {
+					Promise.all(arr).then(values => {
+						// See? I told you!
 						acc(self);
+					}).catch(err => {
+						// I must be too busy.. yeah that's it!
+						rej(err);
 					});
 				}).catch(err => {
 					// Ehhh fuck it
