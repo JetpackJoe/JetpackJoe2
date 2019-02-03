@@ -3,12 +3,13 @@
 		"enemy": {
 			"sprite": "assets/img/entity/enemy.png",
 			"states": {
-				"blue": [0, 0, 40, 90],
-				"green": [40, 0, 40, 90]
+				"green": [40, 0, 40, 90],
+				"blue": [0, 0, 40, 90]
 			},
+			"defaultState": "green",
 			"animFramecount": {
-				"blue": 2,
-				"green": 2
+				"green": 2,
+				"blue": 2
 			}
 		}
 	},
@@ -18,7 +19,8 @@
 			"states": {
 				"green": [0, 0, 16, 16],
 				"orange": [16, 0, 16, 16]
-			}
+			},
+			"defaultState": "green"
 		}
 	}
 }

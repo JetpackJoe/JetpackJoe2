@@ -1,4 +1,5 @@
 import {Level} from './level.js';
+import {Spritelist} from './sprite.js';
 export class Game {
 	constructor() {
 		// Copy this
@@ -12,6 +13,10 @@ export class Game {
 	init() {
 		// Copy this
 		let self = this;
+		// Set the spritesheet
+		self.spritelist = new Spritelist([
+			'blocks.type1:green'
+		]);
 		// I promise!
 		return new Promise((acc, rej) => {
 			fetch('assets/levels.json').then(res => {
@@ -26,7 +31,7 @@ export class Game {
 					}
 					Promise.all(arr).then(values => {
 						// See? I told you!
-						acc(self);
+						acc(self.canvas);
 					}).catch(err => {
 						// I must be too busy.. yeah that's it!
 						rej(err);
@@ -40,5 +45,11 @@ export class Game {
 				rej(err);
 			});
 		});
+	}
+	start() {
+		this.spritelist.draw('blocks.type1:green',
+			this.context,
+			0, 0, 64, 64
+		);
 	}
 }
