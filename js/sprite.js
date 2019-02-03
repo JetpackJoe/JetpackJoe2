@@ -12,7 +12,7 @@ export class Sprite {
 			self.image.src = self.self_obj.sprite;
 		});
 	}
-	drawAt(ctx, x, y, w, h, sx, sy, sw, sh) {
+	drawAt(ctx, x, y, w, h, sx = 0, sy = 0, sw = 0, sh = 0) {
 		if(!('self_obj' in this))
 			return -1;
 		let src = this.self_obj.states[this.state];
