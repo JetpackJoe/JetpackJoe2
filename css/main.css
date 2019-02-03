@@ -1,3 +1,17 @@
+/* ubuntu-mono-regular */
+@font-face {
+  font-family: 'Ubuntu Mono';
+  font-style: normal;
+  font-weight: bold;
+  src: url('fonts/ubuntu-mono-v8-latin-regular.eot'); /* IE9 Compat Modes */
+  src: local('Ubuntu Mono'), local('UbuntuMono-Regular'),
+       url('fonts/ubuntu-mono-v8-latin-regular.eot?#iefix') format('embedded-opentype'), /* IE6-IE8 */
+       url('fonts/ubuntu-mono-v8-latin-regular.woff2') format('woff2'), /* Super Modern Browsers */
+       url('fonts/ubuntu-mono-v8-latin-regular.woff') format('woff'), /* Modern Browsers */
+       url('fonts/ubuntu-mono-v8-latin-regular.ttf') format('truetype'), /* Safari, Android, iOS */
+       url('fonts/ubuntu-mono-v8-latin-regular.svg#UbuntuMono') format('svg'); /* Legacy iOS */
+}
+
 /* Unsupported browsers see this */
 @keyframes noscript {
 	0% {
@@ -17,10 +31,14 @@
 	background-color: black;
 	text-align: center;
 	line-height: 100vh;
-	font-size: 3vmin;
+	font-size: 5vmin;
 	overflow-y: hidden;
 	animation: 2s noscript linear;
-	font-family: "Ubuntu Mono", Ubuntu;
+	font-family: 'Ubuntu Mono', monospace;
+	text-rendering: optimizeLegibility !important;
+	font-smoothing: antialiased !important;
+	-webkit-font-smoothing: antialiased !important;
+	font-weight: bold;
 	color: white;
 }
 
