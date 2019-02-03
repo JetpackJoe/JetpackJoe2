@@ -1,22 +1,28 @@
 import {Level} from './level.js';
 import {Spritelist} from './sprite.js';
+import {Entity, Player} from './entity.js';
 export class Game {
 	constructor() {
 		// Copy this
 		let self = this;
 		// Store important things
+		self.player = new Entity();
 		self.entities = [];
 		self.levels = [];
 		self.canvas = document.createElement('canvas');
 		self.context = self.canvas.getContext('2d');
 	}
+	getPlayer() {
+		return this.player;
+	}
 	init() {
 		// Copy this
 		let self = this;
-		// Set the spritesheet
-		self.spritelist = new Spritelist([
-			'blocks.type1:green'
-		]);
+		// Set the spritelist
+		// self.spritelist = new Spritelist([
+			// 'blocks.type1:green',
+			// 'blocks.type1:blue'
+		// ]);
 		self.level = new Level();
 		// I promise!
 		return new Promise((acc, rej) => {
@@ -51,7 +57,8 @@ export class Game {
 		this.canvas.width = 640;
 		this.canvas.height = 360;
 		this.levels[0].drawOn(
-			this.context
+			this.context,
+			this.getPlayer().pos.x
 		);
 		setTimeout(()=>this.start(), 100);
 	}

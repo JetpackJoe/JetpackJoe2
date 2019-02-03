@@ -40,6 +40,7 @@
 	-webkit-font-smoothing: antialiased !important;
 	font-weight: bold;
 	color: white;
+	animation-delay: 2s;
 }
 
 /* Main CSS */

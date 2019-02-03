@@ -1,8 +1,12 @@
 {
+	"sprites": [
+		"blocks.type1:orange",
+		"blocks.type1:blue"
+	],
 	"blocks": [
-		[0, 80, 100, 5, "#09F"], 
-		[10, 70, 100, 5, "#09F"],
-		[15, 65, 100, 5, "#09F"] 
+		[0, 80, 100, 5, "blocks.type1:orange"], 
+		[10, 70, 100, 5, "blocks.type1:blue"],
+		[15, 65, 100, 5, "blocks.type1:blue"] 
 	],
 	"spawn": [10, 10]
 }
