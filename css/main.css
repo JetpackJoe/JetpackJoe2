@@ -33,14 +33,13 @@
 	line-height: 100vh;
 	font-size: 5vmin;
 	overflow-y: hidden;
-	animation: 2s noscript linear;
+	animation: 3s noscript;
 	font-family: 'Ubuntu Mono', monospace;
 	text-rendering: optimizeLegibility !important;
 	font-smoothing: antialiased !important;
 	-webkit-font-smoothing: antialiased !important;
 	font-weight: bold;
 	color: white;
-	animation-delay: 2s;
 }
 
 /* Main CSS */
