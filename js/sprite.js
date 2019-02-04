@@ -18,11 +18,26 @@ export class Sprite {
 		if(!(this.state in this.self_obj.states)) 
 			return alert("404 " + this.state) || -1;
 		let src = this.self_obj.states[this.state];
-		src[0] += sx;
-		src[1] += sy;
-		src[2] += sw;
-		src[3] += sh;
-		ctx.drawImage(this.image, ...src, x, y, w, h);
+		if(typeof src[0] == 'number') {
+			src[0] += sx;
+			src[1] += sy;
+			src[2] += sw;
+			src[3] += sh;
+			ctx.drawImage(this.image, ...src, x, y, w, h);
+		} else {
+			for(let i = 0; i < src.length; i++) {
+				src[i][0] += sx;
+				src[i][1] += sy;
+				src[i][2] += sw;
+				src[i][3] += sh;
+				if(i == 0) 
+					ctx.drawImage(this.image, ...src[i], x, y, h, h);
+				else if(i == 1)
+					ctx.drawImage(this.image, ...src[i], x+h, y, w-h*2, h);
+				else if(i == 2)
+					ctx.drawImage(this.image, ...src[i], x+w-h, y, h, h);
+			};
+		};
 	}
 }
 
