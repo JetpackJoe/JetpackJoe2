@@ -53,9 +53,9 @@ export class Game {
 			});
 		});
 	}
-	start() {
-		this.canvas.width = 640;
-		this.canvas.height = 360;
+	start(w = 640, h = 360) {
+		this.canvas.width = w;
+		this.canvas.height = h;
 		this.levels[0].drawOn(
 			this.context,
 			this.getPlayer().pos.x
