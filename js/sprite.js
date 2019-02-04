@@ -19,12 +19,14 @@ export class Sprite {
 			return alert("404 " + this.state) || -1;
 		let src = this.self_obj.states[this.state];
 		if(typeof src[0] == 'number') {
+			// Support for single sprite for an entity
 			src[0] += sx;
 			src[1] += sy;
 			src[2] += sw;
 			src[3] += sh;
 			ctx.drawImage(this.image, ...src, x, y, w, h);
 		} else {
+			// Support for rendering a 3-part block to avoid stretching
 			for(let i = 0; i < src.length; i++) {
 				src[i][0] += sx;
 				src[i][1] += sy;
