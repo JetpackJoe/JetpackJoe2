@@ -15,6 +15,8 @@ export class Sprite {
 	drawAt(ctx, x, y, w, h, sx = 0, sy = 0, sw = 0, sh = 0) {
 		if(!('self_obj' in this))
 			return -1;
+		if(!(this.state in this.self_obj.states)) 
+			return alert("404 " + this.state) || -1;
 		let src = this.self_obj.states[this.state];
 		src[0] += sx;
 		src[1] += sy;
@@ -33,6 +35,7 @@ export class Spritelist {
 		};
 	}
 	draw(name, ctx, x, y, w, h) {
-		this.sprites[name].drawAt(ctx, x, y, w, h);
+		ctx.imageSmoothingEnabled = false;
+		if(name in this.sprites) this.sprites[name].drawAt(ctx, x, y, w, h);
 	}
 }

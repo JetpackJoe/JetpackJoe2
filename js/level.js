@@ -21,9 +21,9 @@ export class Level {
 	drawOn(ctx, playerX = 0, ss = this.ss) {
 		for(let block of this.json.blocks) {
 			let drawAt = [
-				ctx.canvas.width*(block[0]-playerX)/100,
+				ctx.canvas.height*(block[0])/100 - ctx.canvas.width*playerX/100,
 				ctx.canvas.height*(block[1])/100,
-				ctx.canvas.width*(block[2])/100,
+				ctx.canvas.height*(block[2])/100,
 				ctx.canvas.height*(block[3])/100
 			];
 			if(block[4].includes(':')) {
