@@ -51,5 +51,5 @@ canvas {
 	width: 100vw;
 	image-rendering: -webkit-pixelated;
 	image-rendering: pixelated;
-	background: black;
+	background: #333;
 }

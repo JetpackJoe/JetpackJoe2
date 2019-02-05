@@ -11,4 +11,18 @@ export class Vector {
 			throw new Error("Vector.add( ... ) needs a Vector object to add");
 		}
 	}
+	div(num) {
+		let v = new Vector(this.x, this.y);
+		v.x /= num;
+		v.y /= num;
+		return v;
+	}
+	mult(num) {
+		let v = new Vector(this.x, this.y);
+		v.x *= num;
+		v.y *= num;
+		return v;
+	}
 }
+const gravity = new Vector(0, 0.1);
+export {gravity};

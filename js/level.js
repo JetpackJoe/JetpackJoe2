@@ -41,14 +41,16 @@ export class Level {
 			}
 		}
 	}
-	checkForCollisions(entity) {
+	checkForCollisions(entity, padX = 0) {
 		for(let plat of this.json.blocks) {
-			if(entity.pos.x < this.json.blocks[0] + this.json.blocks[2] && 
-				entity.pos.x > this.json.blocks[0]) {
+			if((entity.pos.x + entity.vel.x) - (entity.size.x / 2) < plat[0] && 
+				(entity.pos.x + entity.vel.x) + (entity.size.x / 2 + padX) > plat[0]) {
 				// then it's within the same X-general-area
-				if(entity.pos.y > this.json.blocks[1] &&
-					entity.pos.y < this.json.blocks[1]+this.json.blocks[3]) {
+				if((entity.pos.y + entity.vel.y) + entity.size.y > plat[1] &&
+					(entity.pos.y + entity.vel.y) + entity.size.y< plat[1] + plat[3]) {
 					// Collision
+					// We're all gonna die
+					// plat[0] = -1000;
 					return true;
 				}
 			}
