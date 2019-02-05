@@ -1,6 +1,7 @@
 import {Level} from './level.js';
 import {Spritelist} from './sprite.js';
 import {Entity, Player} from './entity.js';
+import {Vector} from './vector.js';
 export class Game {
 	constructor() {
 		// Copy this
@@ -53,13 +54,21 @@ export class Game {
 			});
 		});
 	}
-	start(w = 640, h = 360) {
-		this.canvas.width = w;
-		this.canvas.height = h;
+	frame() {
+		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 		this.levels[0].drawOn(
 			this.context,
 			this.getPlayer().pos.x
 		);
-		setTimeout(()=>this.start(), 100);
+		requestAnimationFrame(this.frame.bind(this));
+	}
+	update() {
+		this.getPlayer().pos.add(new Vector(0.1, 0));
+	}
+	start(w = 640, h = 360) {
+		this.canvas.width = w;
+		this.canvas.height = h;
+		requestAnimationFrame(this.frame.bind(this));
+		setInterval(()=>this.update(), 20);
 	}
 }
