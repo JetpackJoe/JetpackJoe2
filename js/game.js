@@ -61,13 +61,13 @@ export class Game {
 		});
 	}
 	displayFps() {
-	    this.context.font = '24px Comic Sans';
+	    this.context.font = '24px Ubuntu Mono';
 	    this.context.fillText(this.fps + ' frames per second', 16, 32);
 	}
 	frame() {
 		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 	    this.fra ++;
-	    if(new Date().getTime() > 999+this.lfu) {
+	    if(new Date().getTime() > 999 + this.lfu) {
 	        this.fps = this.fra;
 	        this.fra = 0;
 	        this.lfu = new Date().getTime();
