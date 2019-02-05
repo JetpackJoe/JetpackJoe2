@@ -4,7 +4,7 @@ window.addEventListener("DOMContentLoaded", ()=>{
 	game.init().then(canvas=>{
 		document.querySelector('#noscript').style.display = 'none';
 		document.body.appendChild(canvas);
-		game.start(960, 720);
+		game.start(720, 360);
 	}).catch(err => {
 		alert(err);
 	});
