@@ -48,9 +48,7 @@ export class Level {
 				// then it's within the same X-general-area
 				if(entity.pos.y > this.json.blocks[1] &&
 					entity.pos.y < this.json.blocks[1]+this.json.blocks[3]) {
-					// MAY DAY!!
-					// may the day.. come when you'll crash?
-					// sure
+					// Collision
 					return true;
 				}
 			}
