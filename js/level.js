@@ -29,7 +29,7 @@ export class Level {
 				h * (block[3]) / 100
 			];
 			if(block[4].includes(':')) {
-				ss.draw(block[4], ctx, ...drawAt)
+				ss.draw(block[4], ctx, ...drawAt);
 			} else {
 				let colour = new Color(block[4] || '#000');
 				ctx.fillStyle = colour.darken(0x0F);
@@ -41,16 +41,15 @@ export class Level {
 			}
 		}
 	}
-	checkForCollisions(entity, padX = 0) {
+	checkForCollisions(entity, addX = false, addY = true, padX = 0) {
 		for(let plat of this.json.blocks) {
-			if((entity.pos.x + entity.vel.x) - (entity.size.x / 2) < plat[0] && 
-				(entity.pos.x + entity.vel.x) + (entity.size.x / 2 + padX) > plat[0]) {
+			if((entity.pos.x + (addX ? entity.vel.x : 0)) - (entity.size.x / 2) < plat[0] && 
+				(entity.pos.x + (addX ? entity.vel.x : 0)) + (entity.size.x / 2 + padX) > plat[0]) {
 				// then it's within the same X-general-area
-				if((entity.pos.y + entity.vel.y) + entity.size.y > plat[1] &&
-					(entity.pos.y + entity.vel.y) + entity.size.y< plat[1] + plat[3]) {
+				if((entity.pos.y + (addY ? entity.vel.y : 0)) + entity.size.y > plat[1] &&
+					(entity.pos.y + (addY ? entity.vel.y : 0)) < plat[1] + plat[3]) {
 					// Collision
 					// We're all gonna die
-					// plat[0] = -1000;
 					return true;
 				}
 			}

@@ -13,6 +13,8 @@ export class Game {
 		self.levels = [];
 		self.canvas = document.createElement('canvas');
 		self.context = self.canvas.getContext('2d');
+		// Controls
+		this.keysDown = {};
 	}
 	getPlayer() {
 		return this.player;
@@ -20,6 +22,9 @@ export class Game {
 	init() {
 		// Copy this
 		let self = this;
+		self.fps = 'N/A';
+		self.fra = 0;
+		self.lfu = new Date().getTime()
 		// Set the spritelist
 		// self.spritelist = new Spritelist([
 			// 'blocks.type1:green',
@@ -55,17 +60,45 @@ export class Game {
 			});
 		});
 	}
+	displayFps() {
+	    this.context.font = '24px Comic Sans';
+	    this.context.fillText(this.fps + ' frames per second', 16, 32);
+	}
 	frame() {
 		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+	    this.fra ++;
+	    if(new Date().getTime() > 999+this.lfu) {
+	        this.fps = this.fra;
+	        this.fra = 0;
+	        this.lfu = new Date().getTime();
+	    }
+        this.displayFps();
 		this.levels[0].drawOn(
 			this.context,
 			this.getPlayer().pos.x
 		);
 		this.getPlayer().drawOn(this.context);
-		requestAnimationFrame(this.frame.bind(this));
+		setTimeout(this.frame.bind(this));
 	}
 	update() {
 		this.getPlayer().doUpdate(this.levels[0], gravity);
+	    for(let key in this.keysDown) {
+		    switch(key) {
+    			case 'A':
+    				this.getPlayer().vel.x = this.keysDown[key] * -2;
+    				delete this.keysDown[key];
+    				break;
+    			case 'D':
+    				this.getPlayer().vel.x = this.keysDown[key] * +2;
+    				delete this.keysDown[key];
+    				break;
+    			case 'W':
+    				if(this.getPlayer().onGround)
+    					this.getPlayer().vel.y = this.keysDown[key] * -2;
+    					delete this.keysDown[key];
+    				break;
+    		}
+	    }
 		requestAnimationFrame(this.update.bind(this));
 	}
 	start(w = 640, h = 360) {
@@ -75,18 +108,6 @@ export class Game {
 		requestAnimationFrame(this.update.bind(this));
 	}
 	keyEvent(key, down) {
-		key = key.toUpperCase();
-		switch(key) {
-			case 'A':
-				this.getPlayer().vel.x = down*-2;
-				break;
-			case 'D':
-				this.getPlayer().vel.x = down*+2;
-				break;
-			case 'W':
-				if(this.getPlayer().onGround)
-					this.getPlayer().vel.y = down*-2;
-				break;
-		}
+	    this.keysDown[key.toUpperCase()] = down;
 	}
 }
