@@ -27,11 +27,6 @@ export class Level {
 				h * (block[1]) / 100,
 				h * (block[2]) / 100,
 				h * (block[3]) / 100
-			], shadowAt = [
-				h * (block[0] - playerX + 0.75) / 100,
-				h * (block[1] + 0.75) / 100,
-				h * (block[2]) / 100,
-				h * (block[3]) / 100
 			];
 			// Only render if onscreen
 			// Not going to affect preformance now
@@ -41,6 +36,12 @@ export class Level {
 				if(block[4].includes(':')) {
 					// Uncommenting the following lines adds a shadow
 					// However, the shadow will cause a lot of lag :/
+					// let shadowAt = [
+					// 	h * (block[0] - playerX + 0.75) / 100,
+					// 	h * (block[1] + 0.75) / 100,
+					// 	h * (block[2]) / 100,
+					// 	h * (block[3]) / 100
+					// ];
 					// ctx.filter = 'brightness(30%) blur(8px)';
 					// ss.draw(block[4], ctx, ...shadowAt);
 					// ctx.filter = 'none';
