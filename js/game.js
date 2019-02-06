@@ -69,9 +69,12 @@ export class Game {
 		this.context.fillText(this.fps + 'FPS', 16, 32);
 	}
 	drawStars() {
+		// Set the fill colour to white
 		this.context.fillStyle = 'white';
+		// Loop through and draw stars
 		for(let i = 0; i < this.stars.length; i++) {
 			this.context.fillRect(
+				// Use the modulous (%) operator along with adding 100 to ensure it's on screen
 				(this.canvas.width/100*(this.stars[i][0]+100)-this.player.pos.x/2*this.stars[i][2])%this.canvas.width,
 				this.canvas.height/100*this.stars[i][1],
 				this.canvas.height/100*this.stars[i][2]/2,
