@@ -44,7 +44,7 @@ export class Game {
 					Promise.all(arr).then(values => {
 						// Spawn in the player and...
 						self.getPlayer().respawn(self.levels[self.level]);
-						// See? I told you!
+						// See? I told you! What could ever have gone wrong?!
 						acc(self.canvas);
 					}).catch(err => {
 						// I must be too busy.. yeah that's it!
