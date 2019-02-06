@@ -32,7 +32,11 @@ export class Game {
 		// Starry sky
 		self.stars = [];
 		// I love for loops
-		for(;self.stars.length<80;self.stars.push([Math.random()*100,Math.random()*100,Math.random()*2+1])) {};
+		for(;self.stars.length<80;self.stars.push([Math.random()*100,Math.random()*100,Math.random()*2+1])) {
+			// Do literally nothing in here.
+			// If you remove this for loop all the stars go away.
+			// fuck logic
+		};
 		// I promise!
 		return new Promise((acc, rej) => {
 			fetch('assets/levels.json').then(res => {
