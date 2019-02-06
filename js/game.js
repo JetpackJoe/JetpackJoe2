@@ -25,12 +25,10 @@ export class Game {
 		self.fps = 'N/A';
 		self.fra = 0;
 		self.lfu = new Date().getTime()
-		// Set the spritelist
-		// self.spritelist = new Spritelist([
-			// 'blocks.type1:green',
-			// 'blocks.type1:blue'
-		// ]);
-		self.level = new Level();
+		// Level 0 is a good start
+		// NO NOT LEVEL 1 THAT ISWN'T A TYPO
+		// I NEVE RMAKE THOSE!1!
+		self.level = 0; // Seriously though, level 0
 		// I promise!
 		return new Promise((acc, rej) => {
 			fetch('assets/levels.json').then(res => {
