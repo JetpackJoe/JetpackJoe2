@@ -73,7 +73,7 @@ export class Game {
 		this.displayFps();
 		this.levels[this.level].drawOn(
 			this.context,
-			this.getPlayer().pos.x
+			this.getPlayer().pos.x - this.getPlayer().screenX
 		);
 		this.getPlayer().drawOn(this.context);
 		setTimeout(this.frame.bind(this));

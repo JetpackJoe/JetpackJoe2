@@ -24,11 +24,11 @@ export class Player extends Entity {
 		super(x, y, w/10, h/10);
 	}
 	doUpdate(lvl, g) {
-		this.onGround = lvl.checkForCollisions(this, false, true, this.screenX);
+		this.onGround = lvl.checkForCollisions(this, false, true, 0 * this.screenX);
 		if(this.onGround) {
 			this.vel['y'] = 0;
 		}
-		if(lvl.checkForCollisions(this, true, false, this.screenX)) {
+		if(lvl.checkForCollisions(this, true, false, 0 * this.screenX)) {
 			this.vel['x'] = 0;
 		}
 		this.pos.add(this.vel);
