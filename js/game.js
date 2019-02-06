@@ -29,6 +29,10 @@ export class Game {
 		// NO NOT LEVEL 1 THAT ISWN'T A TYPO
 		// I NEVE RMAKE THOSE!1!
 		self.level = 0; // Seriously though, level 0
+		// Starry sky
+		self.stars = [];
+		// I love for loops
+		for(;self.stars.length<80;self.stars.push([Math.random()*100,Math.random()*100,Math.random()*2+1])) {};
 		// I promise!
 		return new Promise((acc, rej) => {
 			fetch('assets/levels.json').then(res => {
@@ -64,6 +68,17 @@ export class Game {
 		this.context.font = '24px Ubuntu Mono';
 		this.context.fillText(this.fps + 'FPS', 16, 32);
 	}
+	drawStars() {
+		this.context.fillStyle = 'white';
+		for(let i = 0; i < this.stars.length; i++) {
+			this.context.fillRect(
+				(this.canvas.width/100*(this.stars[i][0]+100)-this.player.pos.x/2*this.stars[i][2])%this.canvas.width,
+				this.canvas.height/100*this.stars[i][1],
+				this.canvas.height/100*this.stars[i][2]/2,
+				this.canvas.height/100*this.stars[i][2]/2
+			);
+		}
+	}
 	frame() {
 		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 		this.fra ++;
@@ -72,6 +87,7 @@ export class Game {
 			this.fra = 0;
 			this.lfu = new Date().getTime();
 		}
+		this.drawStars();
 		this.displayFps();
 		this.levels[this.level].drawOn(
 			this.context,
