@@ -107,6 +107,10 @@ export class Game {
 		requestAnimationFrame(this.frame.bind(this));
 		requestAnimationFrame(this.update.bind(this));
 	}
+	setSize(w = this.canvas.width, h = this.canvas.height) {
+		this.canvas.width = w;
+		this.canvas.height = h;
+	}
 	keyEvent(key, down) {
 		this.keysDown[key.toUpperCase()] = down;
 	}
