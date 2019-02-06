@@ -28,16 +28,22 @@ export class Level {
 				h * (block[2]) / 100,
 				h * (block[3]) / 100
 			];
-			if(block[4].includes(':')) {
-				ss.draw(block[4], ctx, ...drawAt);
-			} else {
-				let colour = new Color(block[4] || '#000');
-				ctx.fillStyle = colour.darken(0x0F);
-				ctx.strokeStyle = colour.lighten(0x1F);
-				ctx.lineWidth = h * 0.005;
-				ctx.rect(...drawAt);
-				ctx.fill(); // fill it with colour
-				ctx.stroke(); // uhh well you see.. it's having a stroke
+			// Only render if onscreen
+			// Not going to affect preformance now
+			// But it might in the case of a bigger level
+			// be safe rather than sorry
+			if(drawAt[0] + drawAt[2] > 0 && drawAt[0] < ctx.canvas.width) {
+				if(block[4].includes(':')) {
+					ss.draw(block[4], ctx, ...drawAt);
+				} else {
+					let colour = new Color(block[4] || '#000');
+					ctx.fillStyle = colour.darken(0x0F);
+					ctx.strokeStyle = colour.lighten(0x1F);
+					ctx.lineWidth = h * 0.005;
+					ctx.rect(...drawAt);
+					ctx.fill(); // fill it with colour
+					ctx.stroke(); // uhh well you see.. it's having a stroke
+				}
 			}
 		}
 	}
