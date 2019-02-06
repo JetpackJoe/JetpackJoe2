@@ -62,7 +62,7 @@ export class Game {
 	}
 	displayFps() {
 	    this.context.font = '24px Ubuntu Mono';
-	    this.context.fillText(this.fps + ' frames per second', 16, 32);
+	    this.context.fillText(this.fps + 'FPS', 16, 32);
 	}
 	frame() {
 		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
@@ -82,6 +82,7 @@ export class Game {
 	}
 	update() {
 		this.getPlayer().doUpdate(this.levels[0], gravity);
+		// Unfuck the controls
 	    for(let key in this.keysDown) {
 		    switch(key) {
     			case 'A':
