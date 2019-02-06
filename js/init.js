@@ -18,6 +18,7 @@ window.addEventListener('DOMContentLoaded', ()=>{
 		);
 		// The best part is how well it scales ^
 		// Not one issue :D
+		//	EDIT: Not one issue AFAIK D:
 	}).catch(err => {
 		alert(err);
 	});
