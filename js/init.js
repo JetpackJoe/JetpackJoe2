@@ -16,6 +16,8 @@ window.addEventListener('DOMContentLoaded', ()=>{
 		window.addEventListener('resize',
 			evt => game.setSize(window.innerWidth, window.innerHeight)
 		);
+		// The best part is how well it scales ^
+		// Not one issue :D
 	}).catch(err => {
 		alert(err);
 	});
