@@ -29,7 +29,7 @@ export class Player extends Entity {
 			this.vel['y'] = 0;
 		}
 		if(lvl.checkForCollisions(this, true, false, this.screenX)) {
-		    this.vel['x'] = 0;
+			this.vel['x'] = 0;
 		}
 		this.pos.add(this.vel);
 		this.vel.add(g);
@@ -42,10 +42,10 @@ export class Player extends Entity {
 		this.screenX = ctx.canvas.width / 2 - this.size.x / 2;
 		this.screenX /= h; // Units!
 		this.scale = new Vector(
-		    this.vel.x < 0 ? -1 : this.vel.x > 0 ? 1 : this.scale.x,
-		    1
-		  //  this.vel.y < 0 ? -1 : this.vel.y > 0 ? 1 : this.scale.y
-		  //  Bad idea ^
+			this.vel.x < 0 ? -1 : this.vel.x > 0 ? 1 : this.scale.x,
+			1
+			// this.vel.y < 0 ? -1 : this.vel.y > 0 ? 1 : this.scale.y
+			// Bad idea ^
 		);
 		s.drawAt(ctx,
 			this.screenX * h,

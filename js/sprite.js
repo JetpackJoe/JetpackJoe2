@@ -20,7 +20,7 @@ export class Sprite {
 		let src = this.self_obj.states[this.state];
 		if(typeof src[0] == 'number') {
 			// Support for single sprite for an entity
-            src[1] = src[3] * animFrame;
+			src[1] = src[3] * animFrame;
 			ctx.save();
 			ctx.translate(x + w/2, y);
 			ctx.scale(scaleX, scaleY);

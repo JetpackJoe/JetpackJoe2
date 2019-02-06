@@ -61,18 +61,18 @@ export class Game {
 		});
 	}
 	displayFps() {
-	    this.context.font = '24px Ubuntu Mono';
-	    this.context.fillText(this.fps + 'FPS', 16, 32);
+		this.context.font = '24px Ubuntu Mono';
+		this.context.fillText(this.fps + 'FPS', 16, 32);
 	}
 	frame() {
 		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-	    this.fra ++;
-	    if(new Date().getTime() > 999 + this.lfu) {
-	        this.fps = this.fra;
-	        this.fra = 0;
-	        this.lfu = new Date().getTime();
-	    }
-        this.displayFps();
+		this.fra ++;
+		if(new Date().getTime() > 999 + this.lfu) {
+			this.fps = this.fra;
+			this.fra = 0;
+			this.lfu = new Date().getTime();
+		}
+		this.displayFps();
 		this.levels[0].drawOn(
 			this.context,
 			this.getPlayer().pos.x
@@ -84,23 +84,23 @@ export class Game {
 		// Do player update
 		this.getPlayer().doUpdate(this.levels[0], gravity);
 		// Unfuck the controls
-	    for(let key in this.keysDown) {
-		    switch(key) {
-    			case 'A':
-    				this.getPlayer().vel.x = this.keysDown[key] * -2;
-    				delete this.keysDown[key];
-    				break;
-    			case 'D':
-    				this.getPlayer().vel.x = this.keysDown[key] * +2;
-    				delete this.keysDown[key];
-    				break;
-    			case 'W':
-    				if(this.getPlayer().onGround)
-    					this.getPlayer().vel.y = this.keysDown[key] * -2;
-    					delete this.keysDown[key];
-    				break;
-    		}
-	    }
+		for(let key in this.keysDown) {
+			switch(key) {
+				case 'A':
+					this.getPlayer().vel.x = this.keysDown[key] * -2;
+					delete this.keysDown[key];
+					break;
+				case 'D':
+					this.getPlayer().vel.x = this.keysDown[key] * +2;
+					delete this.keysDown[key];
+					break;
+				case 'W':
+					if(this.getPlayer().onGround)
+						this.getPlayer().vel.y = this.keysDown[key] * -2;
+						delete this.keysDown[key];
+					break;
+			}
+		}
 		requestAnimationFrame(this.update.bind(this));
 	}
 	start(w = 640, h = 360) {
@@ -110,6 +110,6 @@ export class Game {
 		requestAnimationFrame(this.update.bind(this));
 	}
 	keyEvent(key, down) {
-	    this.keysDown[key.toUpperCase()] = down;
+		this.keysDown[key.toUpperCase()] = down;
 	}
 }
