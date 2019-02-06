@@ -9,6 +9,11 @@ export class Entity {
 		this.size = new Vector(w, h); // Repurpose a Vector
 		this.scale = new Vector(1, 1);
 	}
+	respawn(lvl) {
+		this.vel.y = -1;
+		this.pos.y = lvl.json.spawn[0];
+		this.pos.x = lvl.json.spawn[0];
+	}
 	doUpdate() {
 		throw new Error("You can't run 'doUpdate' on this entity");
 	}
@@ -24,6 +29,8 @@ export class Player extends Entity {
 		super(x, y, w/10, h/10);
 	}
 	doUpdate(lvl, g) {
+		if(this.pos.y > 300)
+			this.respawn(lvl);
 		this.onGround = lvl.checkForCollisions(this, false, true, 0 * this.screenX);
 		if(this.onGround) {
 			this.vel['y'] = 0;

@@ -42,6 +42,8 @@ export class Game {
 						arr.push(Promise.resolve(self.levels[i].load()));
 					}
 					Promise.all(arr).then(values => {
+						// Spawn in the player and...
+						self.getPlayer().respawn(self.levels[self.level]);
 						// See? I told you!
 						acc(self.canvas);
 					}).catch(err => {
