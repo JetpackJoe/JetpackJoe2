@@ -81,6 +81,7 @@ export class Game {
 		setTimeout(this.frame.bind(this));
 	}
 	update() {
+		// Do player update
 		this.getPlayer().doUpdate(this.levels[0], gravity);
 		// Unfuck the controls
 	    for(let key in this.keysDown) {
