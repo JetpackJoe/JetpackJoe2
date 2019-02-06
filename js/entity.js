@@ -29,8 +29,13 @@ export class Player extends Entity {
 		super(x, y, w/10, h/10);
 	}
 	doUpdate(lvl, g) {
+		// Respawn the player
 		if(this.pos.y > 300)
 			this.respawn(lvl);
+		// Don't allow control after a point of falling
+		if(this.pos.y > 120)
+			this.vel.x = 0;
+		// Check if on ground for physics
 		this.onGround = lvl.checkForCollisions(this, false, true, 0 * this.screenX);
 		if(this.onGround) {
 			this.vel['y'] = 0;
@@ -39,7 +44,7 @@ export class Player extends Entity {
 			this.vel['x'] = 0;
 		}
 		this.pos.add(this.vel);
-		this.vel.add(g);
+		this.vel.add(g); // Gravity Check! :D
 	}
 	drawOn(ctx, s = this.sprite) {
 		// Again, units are 1% height
