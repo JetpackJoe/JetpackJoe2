@@ -43,7 +43,7 @@ export class Level {
 	}
 	checkForCollisions(entity, addX = false, addY = true, padX = 0) {
 		for(let plat of this.json.blocks) {
-			if((entity.pos.x + (addX ? entity.vel.x : 0)) - (entity.size.x / 2) < plat[0] && 
+			if((entity.pos.x + (addX ? entity.vel.x : 0)) + (entity.size.x / 2 + padX) < plat[0] + plat[2] && 
 				(entity.pos.x + (addX ? entity.vel.x : 0)) + (entity.size.x / 2 + padX) > plat[0]) {
 				// then it's within the same X-general-area
 				if((entity.pos.y + (addY ? entity.vel.y : 0)) + entity.size.y > plat[1] &&
