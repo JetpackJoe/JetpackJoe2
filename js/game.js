@@ -71,7 +71,7 @@ export class Game {
 			this.lfu = new Date().getTime();
 		}
 		this.displayFps();
-		this.levels[0].drawOn(
+		this.levels[this.level].drawOn(
 			this.context,
 			this.getPlayer().pos.x
 		);
@@ -80,7 +80,7 @@ export class Game {
 	}
 	update() {
 		// Do player update
-		this.getPlayer().doUpdate(this.levels[0], gravity);
+		this.getPlayer().doUpdate(this.levels[this.level], gravity);
 		// Unfuck the controls
 		for(let key in this.keysDown) {
 			switch(key) {
