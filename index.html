@@ -13,9 +13,11 @@
 	<link rel='favicon' href='img/planet/icon.png' />
 	<link rel='icon' href='img/planet/icon.png' />
 	<script>
+		// If there is an error, alert( ... ) it
+		// so that it is visible without F12
 		window.onerror = function err() {
 			alert(Array.from(arguments));
-		}
+		};
 	</script>
 	<script type='module' src='js/init.js'></script>
 </head>

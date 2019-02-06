@@ -1,3 +1,4 @@
+// Vector to store position
 export class Vector {
 	constructor(x, y) {
 		this.x = x;
@@ -24,5 +25,6 @@ export class Vector {
 		return v;
 	}
 }
+// Gravity should be a constant!
 const gravity = new Vector(0, 0.1);
 export {gravity};
