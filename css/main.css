@@ -35,9 +35,6 @@
 	overflow-y: hidden;
 	animation: 3s noscript;
 	font-family: 'Ubuntu Mono', monospace;
-	text-rendering: optimizeLegibility !important;
-	font-smoothing: antialiased !important;
-	-webkit-font-smoothing: antialiased !important;
 	font-weight: bold;
 	color: white;
 }
@@ -49,7 +46,6 @@ canvas {
 	left: 0;
 	height: 100vh;
 	width: 100vw;
-	image-rendering: -webkit-pixelated;
 	image-rendering: pixelated;
 	background: #114;
 }
