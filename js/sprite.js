@@ -20,12 +20,13 @@ export class Sprite {
 		let src = this.self_obj.states[this.state];
 		if(typeof src[0] == 'number') {
 			// Support for single sprite for an entity
-			src[1] = src[3] * animFrame;
+			src[1] += src[3] * animFrame;
 			ctx.save();
 			ctx.translate(x + w/2, y);
 			ctx.scale(scaleX, scaleY);
 			ctx.drawImage(this.image, ...src, -w/2, 0, w, h);
 			ctx.restore();
+			src[1] -= src[3] * animFrame;
 		} else {
 			// Support for rendering a 3-part block to avoid stretching
 			for(let i = 0; i < src.length; i++) {

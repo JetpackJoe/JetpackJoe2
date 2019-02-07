@@ -22,6 +22,13 @@
 				"orange": [[16, 0, 6, 16], [22, 0, 4, 16], [26, 0, 6, 16]],
 				"white": [[32, 0, 6, 16], [38, 0, 4, 16], [42, 0, 6, 16]]
 			}
+		},
+		"chest": {
+			"defaultState": "default",
+			"sprite": "assets/img/tile/block.png",
+			"states": {
+				"default": [0, 16, 16, 16]
+			}
 		}
 	}
 }

@@ -38,6 +38,10 @@ export class Entity {
 					this.vel[i] = this.onGround[6][i];
 				}
 				break;
+			case 'evt.nothing':
+				// this.vel['y'] = -1;
+				// Do nothing
+				break;
 			case 'evt.finish':
 				this.vel['y'] = 0;
 				game.level ++;
