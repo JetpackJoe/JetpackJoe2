@@ -3,6 +3,10 @@
 		{
 			"name": "Demo World",
 			"file": "assets/levels/demo.json"
+		},
+		{
+			"name": "Daemon's Level",
+			"file": "assets/levels/daemon.json"
 		}
 	]
 }
