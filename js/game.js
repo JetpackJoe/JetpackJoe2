@@ -96,7 +96,6 @@ export class Game {
 		this.running = false;
 	}
 	frame() {
-		// draw frame
 		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 		this.fra ++;
 		if(new Date().getTime() > 999 + this.lfu) {
