@@ -13,8 +13,8 @@
 		[350, 80, 20, 5, "blocks.type1:blue"],
 		[390, 95, 20, 5, "blocks.type1:blue"],
 		[450, 83, 14, 5, "blocks.type1:blue"],
-		[480, 72, 20, 5, "blocks.type1:blue"],
-		[510, 69, 20, 5, "blocks.type1:blue"]		
+		[490, 72, 20, 5, "blocks.type1:blue"],
+		[530, 69, 20, 5, "blocks.type1:blue"]		
 	],
 	"spawn": [10, 10]
 }
