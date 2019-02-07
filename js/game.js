@@ -124,13 +124,13 @@ export class Game {
 			this.getPlayer().doUpdate(this.levels[this.level], gravity, this);
 			this.controls.unfuck();
 		}
-		setTimeout(this.update.bind(this), 16);
+		setTimeout(this.update.bind(this), 15.5);
 	}
 	start(w = 640, h = 360) {
 		this.canvas.width = w;
 		this.canvas.height = h;
-		requestAnimationFrame(this.frame.bind(this));
-		requestAnimationFrame(this.update.bind(this));
+		this.frame();
+		this.update();
 	}
 	setSize(w = this.canvas.width, h = this.canvas.height) {
 		this.canvas.width = w;
