@@ -96,19 +96,16 @@ export class Game {
 		this.running = false;
 	}
 	frame() {
-		// fps crap
-		// this is the most accurate method ik of
-		// if you have suggestions go ahead
-		// but I like this
-		this.fra ++;
-		if(new Date().getTime() > 999 + this.lfu) {
-			this.fps = this.fra;
-			this.fra = 0;
-			this.lfu = new Date().getTime();
-		}
 		// Only render if the game is running
 		if(this.running) {
 			this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+			// fps crap
+			this.fra ++;
+			if(new Date().getTime() > 999 + this.lfu) {
+				this.fps = this.fra;
+				this.fra = 0;
+				this.lfu = new Date().getTime();
+			}
 			this.drawStars();
 			this.displayFps();
 			this.levels[this.level].drawOn(
