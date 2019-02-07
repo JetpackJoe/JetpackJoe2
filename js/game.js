@@ -96,22 +96,20 @@ export class Game {
 		this.running = false;
 	}
 	frame() {
-		if(this.running) {
-			this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-			this.fra ++;
-			if(new Date().getTime() > 999 + this.lfu) {
-				this.fps = this.fra;
-				this.fra = 0;
-				this.lfu = new Date().getTime();
-			}
-			this.drawStars();
-			this.displayFps();
-			this.levels[this.level].drawOn(
-				this.context,
-				this.getPlayer().pos.x - this.getPlayer().screenX
-			);
-			this.getPlayer().drawOn(this.context);
-		};
+		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+		this.fra ++;
+		if(new Date().getTime() > 999 + this.lfu) {
+			this.fps = this.fra;
+			this.fra = 0;
+			this.lfu = new Date().getTime();
+		}
+		this.drawStars();
+		this.displayFps();
+		this.levels[this.level].drawOn(
+			this.context,
+			this.getPlayer().pos.x - this.getPlayer().screenX
+		);
+		this.getPlayer().drawOn(this.context);
 		setTimeout(this.frame.bind(this));
 	}
 	update() {
