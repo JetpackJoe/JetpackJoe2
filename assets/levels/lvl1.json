@@ -16,7 +16,7 @@
 		[450, 83, 14, 5, "blocks.type1:blue"],
 		[490, 72, 20, 5, "blocks.type1:blue"],
 		[530, 69, 20, 5, "blocks.type1:blue"],
-		[570, 69, 20, 5, "blocks.type1:white", "evt.finish"]	
+		[570, 69, 20, 5, "blocks.type1:white", "evt.finish"]
 	],
 	"spawn": [10, 10]
 }

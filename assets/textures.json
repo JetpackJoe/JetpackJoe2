@@ -1,12 +1,12 @@
 {
 	"entities": {
 		"enemy": {
+			"defaultState": "green",
 			"sprite": "assets/img/entity/enemy.png",
 			"states": {
 				"green": [40, 0, 40, 90],
 				"blue": [0, 0, 40, 90]
 			},
-			"defaultState": "green",
 			"animFramecount": {
 				"green": 2,
 				"blue": 2
@@ -15,13 +15,13 @@
 	},
 	"blocks": {
 		"type1": {
+			"defaultState": "blue",
 			"sprite": "assets/img/tile/block.png",
 			"states": {
 				"blue": [[0, 0, 6, 16], [6, 0, 4, 16], [10, 0, 6, 16]],
 				"orange": [[16, 0, 6, 16], [22, 0, 4, 16], [26, 0, 6, 16]],
 				"white": [[32, 0, 6, 16], [38, 0, 4, 16], [42, 0, 6, 16]]
-			},
-			"defaultState": "blue"
+			}
 		}
 	}
 }
