@@ -2,6 +2,7 @@ import {Level} from './level.js';
 import {Spritelist} from './sprite.js';
 import {Entity, Player} from './entity.js';
 import {Vector, gravity} from './vector.js';
+import {Controller} from './control.js';
 export class Game {
 	constructor() {
 		// Copy this
@@ -13,8 +14,6 @@ export class Game {
 		self.levels = [];
 		self.canvas = document.createElement('canvas');
 		self.context = self.canvas.getContext('2d');
-		// Controls
-		this.keysDown = {};
 	}
 	getPlayer() {
 		return this.player;
@@ -22,6 +21,8 @@ export class Game {
 	init() {
 		// Copy this
 		let self = this;
+		self.controls = new Controller();
+		self.controls.setGame(this);
 		self.fps = 'N/A';
 		self.fra = 0;
 		self.lfu = new Date().getTime()
@@ -106,24 +107,7 @@ export class Game {
 	update() {
 		// Do player update
 		this.getPlayer().doUpdate(this.levels[this.level], gravity);
-		// Unfuck the controls
-		for(let key in this.keysDown) {
-			switch(key) {
-				case 'A':
-					this.getPlayer().vel.x = this.keysDown[key] * -2;
-					delete this.keysDown[key];
-					break;
-				case 'D':
-					this.getPlayer().vel.x = this.keysDown[key] * +2;
-					delete this.keysDown[key];
-					break;
-				case 'W':
-					if(this.getPlayer().onGround)
-						this.getPlayer().vel.y = this.keysDown[key] * -2;
-						delete this.keysDown[key];
-					break;
-			}
-		}
+		this.controls.unfuck();
 		requestAnimationFrame(this.update.bind(this));
 	}
 	start(w = 640, h = 360) {
@@ -135,8 +119,5 @@ export class Game {
 	setSize(w = this.canvas.width, h = this.canvas.height) {
 		this.canvas.width = w;
 		this.canvas.height = h;
-	}
-	keyEvent(key, down) {
-		this.keysDown[key.toUpperCase()] = down;
 	}
 }

@@ -49,3 +49,16 @@ canvas {
 	image-rendering: pixelated;
 	background: #114;
 }
+
+/* Mobile Controller will be enabled programatically */
+.mobile {
+	display: none;
+}
+div.mobile {
+	z-index: 100;
+	position: fixed;
+	top: 0;
+	left: 0;
+	width: 100vw;
+	height: 100vh;
+}
