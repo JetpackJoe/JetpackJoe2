@@ -1,0 +1,23 @@
+{
+	"sprites": [
+		"blocks.type1:orange",
+		"blocks.type1:blue",
+		"blocks.type1:white"
+	],
+	"blocks": [
+		[0, 90, 30, 5, "blocks.type1:orange"],
+		[60, 90, 30, 5, "blocks.type1:blue", "evt.fling", {"x": -1.25, "y": -4}],
+		[-10, 20, 40, 5, "blocks.type1:blue", "evt.fling", {"x": 6, "y": -1}],
+		[260, 80, 60, 5, "blocks.type1:blue", "evt.fling", {"y": -1.5}],
+		[460, 80, 60, 5, "blocks.type1:blue", "evt.fling", {"y": -3}],
+		[810, 80, 70, 5, "blocks.type1:blue"],
+		[860, 75, 20, 5, "blocks.type1:blue"],
+		[860, 70, 20, 5, "blocks.type1:blue"],
+		[900, 70, 40, 5, "blocks.type1:blue"],
+		[1000, 80, 40, 5, "blocks.type1:blue"],
+		[1050, 70, 40, 5, "blocks.type1:blue", "evt.fling", {"y": -3.5, "x": -2}],
+		[950, 10, 60, 5, "blocks.type1:blue"],
+		[900, 15, 110, 5, "blocks.type1:white", "evt.finish"]
+	],
+	"spawn": [20, 35]
+}
