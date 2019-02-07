@@ -14,9 +14,9 @@ export class Game {
 		self.levels = [];
 		self.canvas = document.createElement('canvas');
 		self.context = self.canvas.getContext('2d');
-		// If this is false, the game won't render or update
+		// If this is false, the game won't update
 		// basically `isUnpaused`
-		this.running = false;
+		self.running = false;
 	}
 	getPlayer() {
 		return this.player;
