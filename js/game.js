@@ -106,7 +106,9 @@ export class Game {
 				this.fra = 0;
 				this.lfu = new Date().getTime();
 			}
+			// draw stars
 			this.drawStars();
+			// display fps
 			this.displayFps();
 			this.levels[this.level].drawOn(
 				this.context,
