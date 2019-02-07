@@ -105,7 +105,7 @@ export class Game {
 		}
 		this.drawStars();
 		this.displayFps();
-		this.levels[this.level].drawOn(
+		this.levels[this.level in this.levels ? this.level : this.levels.length - 1].drawOn(
 			this.context,
 			this.getPlayer().pos.x - this.getPlayer().screenX
 		);
