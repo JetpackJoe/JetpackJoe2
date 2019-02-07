@@ -106,7 +106,7 @@ export class Game {
 	}
 	update() {
 		// Do player update
-		this.getPlayer().doUpdate(this.levels[this.level], gravity);
+		this.getPlayer().doUpdate(this.levels[this.level], gravity, this);
 		this.controls.unfuck();
 		requestAnimationFrame(this.update.bind(this));
 	}

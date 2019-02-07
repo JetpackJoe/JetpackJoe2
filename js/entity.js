@@ -28,7 +28,7 @@ export class Player extends Entity {
 	constructor(x = 10, y = 10, w = 80, h = 180) {
 		super(x, y, w/10, h/10);
 	}
-	doUpdate(lvl, g) {
+	doUpdate(lvl, g, game) {
 		// Respawn the player
 		if(this.pos.y > 300)
 			this.respawn(lvl);
@@ -37,8 +37,16 @@ export class Player extends Entity {
 			this.vel.x = 0;
 		// Check if on ground for physics
 		this.onGround = lvl.checkForCollisions(this, false, true, 0 * this.screenX);
-		if(this.onGround) {
-			this.vel['y'] = 0;
+		if(this.onGround != false) {
+			switch(this.onGround) {
+				case 'evt.finish';
+					this.vel['y'] = 0;
+					game.level ++;
+					break;
+				case true:
+					this.vel['y'] = 0;
+					break;
+			}
 		}
 		if(lvl.checkForCollisions(this, true, false, 0 * this.screenX)) {
 			this.vel['x'] = 0;

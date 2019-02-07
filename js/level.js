@@ -67,7 +67,7 @@ export class Level {
 					(entity.pos.y + (addY ? entity.vel.y : 0)) < plat[1] + plat[3]) {
 					// Collision
 					// We're all gonna die
-					return true;
+					return plat[5] || true;
 				}
 			}
 		}
