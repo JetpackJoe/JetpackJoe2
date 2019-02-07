@@ -87,6 +87,9 @@ export class Game {
 			);
 		}
 	}
+	win() {
+		alert('TODO: win screen');
+	}
 	frame() {
 		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 		this.fra ++;

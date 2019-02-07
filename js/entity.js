@@ -39,9 +39,11 @@ export class Player extends Entity {
 		this.onGround = lvl.checkForCollisions(this, false, true, 0 * this.screenX);
 		if(this.onGround != false) {
 			switch(this.onGround) {
-				case 'evt.finish';
+				case 'evt.finish':
 					this.vel['y'] = 0;
 					game.level ++;
+					if(game.level >= game.levels.length)
+						game.win();
 					break;
 				case true:
 					this.vel['y'] = 0;
