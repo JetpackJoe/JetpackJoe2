@@ -37,19 +37,18 @@ export class Level {
 					// Uncommenting the following lines adds a shadow
 					// However, the shadow will cause a lot of lag :/
 					// let shadowAt = [
-					// 	h * (block[0] - playerX + 0.75) / 100,
-					// 	h * (block[1] + 0.75) / 100,
-					// 	h * (block[2]) / 100,
-					// 	h * (block[3]) / 100
+						// h * (block[0] - playerX + 0.75) / 100,
+						// h * (block[1] + 0.75) / 100,
+						// h * (block[2]) / 100,
+						// h * (block[3]) / 100
 					// ];
 					// ctx.filter = 'brightness(30%) blur(8px)';
 					// ss.draw(block[4], ctx, ...shadowAt);
 					// ctx.filter = 'none';
 					ss.draw(block[4], ctx, ...drawAt);
 				} else {
-					let colour = new Color(block[4] || '#000');
-					ctx.fillStyle = colour.darken(0x0F);
-					ctx.strokeStyle = colour.lighten(0x1F);
+					ctx.fillStyle = block[4];
+					ctx.strokeStyle = 'black';
 					ctx.lineWidth = h * 0.005;
 					ctx.rect(...drawAt);
 					ctx.fill(); // fill it with colour
@@ -67,7 +66,7 @@ export class Level {
 					(entity.pos.y + (addY ? entity.vel.y : 0)) < plat[1] + plat[3]) {
 					// Collision
 					// We're all gonna die
-					return plat[5] || true;
+					return plat;
 				}
 			}
 		}

@@ -3,8 +3,8 @@ export class Controller {
 		this.mobile = false;
 		this.keysDown = {};
 		// Keyboard events
-		window.addEventListener('keydown',	evt => this.keyEvent(evt.key, true));
-		window.addEventListener('keyup',	evt => this.keyEvent(evt.key, false));
+		window.addEventListener('keydown',	evt => this.keyEvent(evt, true));
+		window.addEventListener('keyup',	evt => this.keyEvent(evt, false));
 	}
 	setGame(g) {
 		this.g = g;
@@ -32,14 +32,14 @@ export class Controller {
 					delete this.keysDown[key];
 					break;
 				case 'W':
-					if(this.g.getPlayer().onGround)
-						this.g.getPlayer().vel.y = this.keysDown[key] * -2;
-						delete this.keysDown[key];
+					if(this.g.getPlayer().onGround && this.keysDown[key])
+						this.g.getPlayer().vel.y = -2;
 					break;
 			}
 		}
 	}
-	keyEvent(key, down) {
-		this.keysDown[key.toUpperCase()] = down;
+	keyEvent(evt, down) {
+		if(evt.key != 'r' && !evt.ctrlKey) evt.preventDefault();
+		this.keysDown[evt.key.toUpperCase()] = down;
 	}
 }

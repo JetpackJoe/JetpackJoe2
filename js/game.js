@@ -92,7 +92,7 @@ export class Game {
 		}
 	}
 	win() {
-		alert('TODO: win screen');
+	    alert('TODO: win screen');
 		this.running = false;
 	}
 	frame() {
