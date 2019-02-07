@@ -14,9 +14,9 @@ export class Game {
 		self.levels = [];
 		self.canvas = document.createElement('canvas');
 		self.context = self.canvas.getContext('2d');
-		// If this is false, the game won't update
+		// If this is false, the game won't render or update
 		// basically `isUnpaused`
-		self.running = false;
+		this.running = false;
 	}
 	getPlayer() {
 		return this.player;
@@ -96,20 +96,22 @@ export class Game {
 		this.running = false;
 	}
 	frame() {
-		this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
-		this.fra ++;
-		if(new Date().getTime() > 999 + this.lfu) {
-			this.fps = this.fra;
-			this.fra = 0;
-			this.lfu = new Date().getTime();
-		}
-		this.drawStars();
-		this.displayFps();
-		this.levels[this.level in this.levels ? this.level : this.levels.length - 1].drawOn(
-			this.context,
-			this.getPlayer().pos.x - this.getPlayer().screenX
-		);
-		this.getPlayer().drawOn(this.context);
+		if(this.running) {
+			this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
+			this.fra ++;
+			if(new Date().getTime() > 999 + this.lfu) {
+				this.fps = this.fra;
+				this.fra = 0;
+				this.lfu = new Date().getTime();
+			}
+			this.drawStars();
+			this.displayFps();
+			this.levels[this.level].drawOn(
+				this.context,
+				this.getPlayer().pos.x - this.getPlayer().screenX
+			);
+			this.getPlayer().drawOn(this.context);
+		};
 		setTimeout(this.frame.bind(this));
 	}
 	update() {
