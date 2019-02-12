@@ -27,6 +27,9 @@ export class Game {
 		self.running = true;
 		self.controls = new Controller();
 		self.controls.setGame(this);
+		// If you are on a touch device then this might be a smart idea.
+		if(navigator.userAgent.match(/(Android|webOS|i(Pod|Pad|Phone)|BlackBerry|Phone|Silk)/gi))
+			self.controls.toggleMobileController();
 		self.fps = 'N/A';
 		self.fra = 0;
 		self.lfu = new Date().getTime()

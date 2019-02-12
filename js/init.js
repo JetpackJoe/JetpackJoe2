@@ -4,9 +4,6 @@ window.addEventListener('DOMContentLoaded', ()=>{
 	game.init().then(canvas=>{
 		document.querySelector('#noscript').style.display = 'none';
 		document.body.appendChild(canvas);
-		// If you are on a touch device then this might be a smart idea.
-		if(navigator.userAgent.match(/(Android|webOS|i(Pod|Pad|Phone)|BlackBerry|Phone|Silk)/gi))
-			controller.toggleMobileController();
 		// Make the following depend on screen-res
 		game.start(
 			window.innerWidth, 
